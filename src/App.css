@@ -36,3 +36,25 @@
     transform: rotate(360deg);
   }
 }
+
+.projects-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap; /* Allows items to wrap onto multiple lines as needed */
+}
+
+.project-image {
+  width: 60vh; /* Adjust based on your preference */
+  margin: 0%; /* Provides spacing between the images */
+  height: 80vh; /* Set a specific height */
+
+}
+
+/* Media query for devices with a max-width of 768px */
+@media (max-width: 768px) {
+  .project-image {
+    width: 100%; /* Adjust based on your preference */
+    height: 80vh; /* Set a specific height */
+  }
+}
