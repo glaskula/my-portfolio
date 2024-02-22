@@ -40,21 +40,47 @@
 .projects-container {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: start; /* Align items at the start of the container */
   flex-wrap: wrap; /* Allows items to wrap onto multiple lines as needed */
 }
 
 .project-image {
-  width: 60vh; /* Adjust based on your preference */
-  margin: 0%; /* Provides spacing between the images */
-  height: 80vh; /* Set a specific height */
-
+  flex: 1 1 35%; /* Allows flexibility but tries to take up 35% of the container's width */
+  max-width: 35%; /* Maximum width to help enforce the 2 items per row rule */
+  height: 95vh; /* Sets a fixed height for all images */
+  object-fit: cover; /* Ensures images cover the area nicely, might crop some parts */
 }
 
-/* Media query for devices with a max-width of 768px */
+/* Specific style for the fourth image to maintain its original aspect ratio */
+.projects-container img:nth-child(4) {
+  height: 95vh; /* Resets the height to auto to maintain original aspect ratio */
+  object-fit: scale-down; /* Ensures the image is scaled down if necessary, without cropping */
+  max-width: 20%;
+  padding-left: 7.5%;
+  padding-right: 7.5%;
+  background-color: black;
+}
+
 @media (max-width: 768px) {
   .project-image {
-    width: 100%; /* Adjust based on your preference */
-    height: 80vh; /* Set a specific height */
+    width: 100%; /* Full width for smaller screens */
+    max-width: 100%; /* Overrides any max-width set above */
+    height: 100%; /* Adjusts height to maintain a good view on mobile, you can adjust this value */
+  }
+  
+  /* Adjust the fourth image on smaller screens, if necessary */
+  .projects-container img:nth-child(4) {
+    /* Add any specific styles for mobile here if needed, for maintaining aspect ratio */
+  }
+
+  .projects-container img:nth-child(4) {
+    object-fit: scale-down; /* Ensures the image is scaled down if necessary, without cropping */
+    max-width: 100%; /* Overrides any max-width set above */
+    height: 100%; /* Adjusts height to maintain a good view on mobile, you can adjust this value */
+    padding-left: 7.5%;
+    padding-right: 7.5%;
+    background-color: black;
   }
 }
+
+
